@@ -18,3 +18,9 @@ spec:
     automated:
       prune: true
       selfHeal: true
+  # --- THÊM VÀO ĐÂY ĐỂ PHÁ VỠ LỖI SCHEMA TẠI APP ROOT ---
+  ignoreDifferences:
+    - group: argoproj.io
+      kind: Rollout
+      jsonPointers:
+        - /status/terminatingReplicas
