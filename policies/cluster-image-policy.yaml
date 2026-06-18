@@ -1,0 +1,14 @@
+apiVersion: policy.sigstore.dev/v1beta1
+kind: ClusterImagePolicy
+metadata:
+  name: image-signature-policy
+spec:
+  images:
+    - glob: "ghcr.io/pkhoa011004/w10-api**"
+  authorities:
+    - key:
+        data: |
+          -----BEGIN PUBLIC KEY-----
+          MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEGZIjYF8vVOWZGZMawVSQOKHi5NI3
+          NQYP7Gpk25GYrlQ6Xn3GYxLUaMCdsgva44JQ8RTL8xFMFYf0X+60nrBhwg==
+          -----END PUBLIC KEY-----

@@ -3,5 +3,8 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: demo
+  labels:
+    # BẪY: Chỉ bỏ chú thích (uncomment) nhãn dưới đây SAU KHI image đầu tiên đã được build & ký số thành công ở CI/CD
+    # policy.sigstore.dev/include: "true"
   annotations:
     argocd.argoproj.io/sync-wave: "0"
