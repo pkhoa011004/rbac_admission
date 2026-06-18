@@ -63,3 +63,16 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+  ignoreDifferences:
+  - group: apps
+    kind: Deployment
+    jsonPointers:
+    - /status/terminatingReplicas
+  - group: apps
+    kind: StatefulSet
+    jsonPointers:
+    - /status/terminatingReplicas
+  - group: apps
+    kind: DaemonSet
+    jsonPointers:
+    - /status/terminatingReplicas
