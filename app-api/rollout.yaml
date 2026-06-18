@@ -18,6 +18,8 @@ spec:
     metadata:
       labels:
         app: api
+      annotations:
+        admission.lab/step2: "non-root-v2"
     spec:
       securityContext:
         runAsNonRoot: true
