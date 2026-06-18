@@ -1,0 +1,74 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sDisallowedImageTags
+metadata:
+  name: rollout-disallow-latest-image-tag
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+      - apiGroups:
+          - argoproj.io
+        kinds:
+          - Rollout
+    namespaces:
+      - demo
+  parameters:
+    tags:
+      - latest
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sRequiredContainerLimits
+metadata:
+  name: rollout-require-container-limits
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+      - apiGroups:
+          - argoproj.io
+        kinds:
+          - Rollout
+    namespaces:
+      - demo
+  parameters:
+    limits:
+      - cpu
+      - memory
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sDisallowRunAsUserZero
+metadata:
+  name: rollout-disallow-runasuser-zero
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+      - apiGroups:
+          - argoproj.io
+        kinds:
+          - Rollout
+    namespaces:
+      - demo
+---
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sDisallowHostNetwork
+metadata:
+  name: rollout-disallow-hostnetwork
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+      - apiGroups:
+          - argoproj.io
+        kinds:
+          - Rollout
+    namespaces:
+      - demo
