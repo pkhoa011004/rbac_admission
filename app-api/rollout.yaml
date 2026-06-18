@@ -19,10 +19,20 @@ spec:
       labels:
         app: api
     spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
       containers:
       - name: api
         image: ghcr.io/pkhoa011004/w10-api:0.0.1
         imagePullPolicy: IfNotPresent
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
         ports:
         - containerPort: 8080
           protocol: TCP
@@ -42,6 +52,9 @@ spec:
             port: 8080
           initialDelaySeconds: 3
         resources:
+          requests:
+            cpu: 50m
+            memory: 64Mi
           limits:
             cpu: 200m
             memory: 128Mi

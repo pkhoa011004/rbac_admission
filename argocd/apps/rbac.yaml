@@ -1,16 +1,16 @@
-# ArgoCD App: Deploy common resources (namespace)
+# ArgoCD App: Manage lab RBAC roles and bindings
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: common
+  name: rbac
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "-1"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
   source:
     repoURL: https://github.com/pkhoa011004/rbac_admission.git
-    path: app-common
+    path: rbac
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
@@ -20,5 +20,4 @@ spec:
       prune: true
       selfHeal: true
     syncOptions:
-    - CreateNamespace=true
     - ServerSideApply=true

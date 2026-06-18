@@ -7,8 +7,9 @@ on:
     - 'app-analysis/**'
     - 'app-alert/**'
     - 'app-common/**'
+    - 'rbac/**'
     - 'argocd/**'
-    # W10 se them: rbac/**, gatekeeper/**, eso/**, signing/**
+    # W10 se them: gatekeeper/**, eso/**, signing/**
 
 jobs:
   validate:
@@ -27,4 +28,4 @@ jobs:
     - name: Validate manifests
       run: |
         kubeconform -strict -summary -ignore-missing-schemas \
-          app-api/ app-analysis/ app-alert/ app-common/ argocd/
+          app-api/ app-analysis/ app-alert/ app-common/ argocd/ rbac/
