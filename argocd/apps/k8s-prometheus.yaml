@@ -36,7 +36,6 @@ spec:
             - name: 'null'
             - name: 'email-notifications'
               email_configs:
-                auth_username: 'phuockhoamai@gmail.com'
               - to: 'phuockhoamai@gmail.com'
                 from: 'phuockhoamai@gmail.com'
                 smarthost: 'smtp.gmail.com:587'
