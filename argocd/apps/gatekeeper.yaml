@@ -12,6 +12,12 @@ spec:
     repoURL: https://open-policy-agent.github.io/gatekeeper/charts
     chart: gatekeeper
     targetRevision: 3.18.2
+    helm:
+      parameters:
+        - name: postInstall.labelNamespace.enabled
+          value: "false"
+        - name: postUpgrade.labelNamespace.enabled
+          value: "false"
   destination:
     server: https://kubernetes.default.svc
     namespace: gatekeeper-system
