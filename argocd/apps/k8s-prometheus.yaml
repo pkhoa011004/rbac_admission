@@ -27,7 +27,7 @@ spec:
               group_wait: 10s
               group_interval: 5m
               repeat_interval: 12h
-              receiver: 'email-notifications'
+              receiver: 'null'
               routes:
                 - receiver: 'null'
                   matchers:
