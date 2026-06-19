@@ -1,0 +1,3 @@
+# Exception ADR có thời hạn: Tạm thời bỏ qua CVE này vì chưa có bản sửa lỗi từ vendor
+# Định dạng: <CVE-ID> exp:<YYYY-MM-DD>
+CVE-2024-22667 exp:2026-12-31
